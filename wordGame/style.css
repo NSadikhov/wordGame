@@ -1,0 +1,46 @@
+.a {
+  width: 70%;
+  margin: 25px auto;
+  height: auto;
+  padding: 25px 0px;
+}
+input {
+  width: 80%;
+  height: 50px;
+  margin: 30px auto;
+  outline: none;
+  text-align: center;
+}
+img {
+  width: 50%;
+}
+.pad {
+  font-size: 22px;
+}
+
+.first-span {
+  text-align: center;
+  background: orange;
+  border: 2px solid orange;
+  padding: 3px 15px;
+  border-radius: 100%;
+  font-size: 25px;
+  font-weight: bold;
+  float: right;
+}
+.h {
+  text-align: center;
+  font-size: 70px;
+}
+.inp {
+  font-size: 30px;
+  font-weight: bold;
+}
+.h1 {
+  text-align: center;
+  font-size: 70px;
+  line-height: 230px;
+}
+.span{
+    margin: 0px 10px;
+}

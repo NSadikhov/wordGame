@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+</head>
+
+<body>
+    <div class="jumbotron a">
+        <div class="container ">
+            <button type="button" class="btn btn-outline-primary pad">
+                <i class="fas fa-sync-alt"></i>
+            </button>
+            <span class="first-span">3</span>
+            <h1 class="h">FIND CITY</h1>
+            <div class="input-group mb-3">
+                <input type="text" placeholder="Enter Letter" class="inp">
+            </div>
+        </div>
+    </div>
+
+    <div class="jumbotron jumbotron-fluid a">
+        <div class="container">
+            <h1 class="h1"></h1>
+        </div>
+    </div>
+    <script src="jquery.js"></script>
+    <script>
+
+        let array = [
+            "tokyo",
+            "istanbul",
+            "baki",
+            "moskva",
+            "london",
+            "berlin",
+            "paris",
+            "madrid",
+            "roma",
+            "sidney",
+            "pekin",
+            "oslo",
+            "kiyev",
+            "ankara",
+            "izmir",
+        ];
+        $(".pad").on("click", function () {
+            document.location.reload();
+        });
+        let rand = Math.floor(Math.random() * array.length);
+        console.log(array[rand]);
+        let str = array[rand].split("");
+        let randName = array[rand];
+
+        for (let i of str) {
+            let span = document.createElement("span");
+            span.className = "span";
+            span.innerText = "_";
+            let h1 = document.querySelector(".h1");
+            h1.appendChild(span);
+        }
+        let inp = document.querySelector("input");
+        console.log(str);
+        $(".inp").change(function () {
+            if (randName.includes(inp.value)) {
+
+                for (let j = 0; j < str.length; j++) {
+                    if (inp.value == str[j]) {
+                        j++;
+                        $(".span:nth-child(" + j + ")").text(inp.value);
+                        if (randName == $(".h1").text()) {
+                            alert("CORRECT");
+                            rand = Math.floor(Math.random() * array.length);
+                            str = array[rand].split("");
+                            randName = array[rand];
+                            console.log(randName);
+                            $(".span").remove();
+                            for (let i of str) {
+                                let span = document.createElement("span");
+                                span.className = "span";
+                                span.innerText = "_";
+                                let h1 = document.querySelector(".h1");
+                                h1.appendChild(span);
+                            }
+                        }
+                    }
+
+                }
+                if (inp.value == randName) {
+                    let inpV = inp.value.split("");
+                    for (let k = 1; k <= str.length; k++) {
+                        let numb = k;
+                        numb--;
+                        $(".span:nth-child(" + k + ")").text(inpV[numb]);
+                        inp.value = "";
+                    }
+                    if (randName == $(".h1").text()) {
+                        alert("CORRECT");
+                        rand = Math.floor(Math.random() * array.length);
+                        str = array[rand].split("");
+                        randName = array[rand];
+                        console.log(randName);
+                        $(".span").remove();
+                        for (let i of str) {
+                            let span = document.createElement("span");
+                            span.className = "span";
+                            span.innerText = "_";
+                            let h1 = document.querySelector(".h1");
+                            h1.appendChild(span);
+                        }
+                    }
+                }
+
+            }
+
+            else {
+                let a = $(".first-span").text();
+                if (a > 0) {
+                    a--;
+                    $(".first-span").text(a);
+                    console.log(a)
+                } else {
+                    alert("THE END");
+                    document.location.reload();
+                }
+            }
+            inp.value = "";
+        })
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>
