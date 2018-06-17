@@ -88,6 +88,7 @@
                                 let h1 = document.querySelector(".h1");
                                 h1.appendChild(span);
                             }
+                            $(".first-span").text(3);
                         }
                     }
 
@@ -101,6 +102,7 @@
                         inp.value = "";
                     }
                     if (randName == $(".h1").text()) {
+                        
                         alert("CORRECT");
                         rand = Math.floor(Math.random() * array.length);
                         str = array[rand].split("");
@@ -114,6 +116,7 @@
                             let h1 = document.querySelector(".h1");
                             h1.appendChild(span);
                         }
+                        $(".first-span").text(3);
                     }
                 }
 
